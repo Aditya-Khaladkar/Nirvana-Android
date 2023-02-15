@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.nirvana.R
 import com.example.nirvana.databinding.FragmentSplashScreenBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreenFrag : Fragment() {
     lateinit var binding: FragmentSplashScreenBinding
@@ -21,9 +22,15 @@ class SplashScreenFrag : Fragment() {
         binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
 
         Handler().postDelayed(Runnable {
-            Navigation
-                .findNavController(binding.root)
-                .navigate(R.id.action_splashScreenFrag_to_signUpFrag)
+            if (FirebaseAuth.getInstance().currentUser != null) {
+                Navigation
+                    .findNavController(binding.root)
+                    .navigate(R.id.action_splashScreenFrag_to_dashboardFrag)
+            } else {
+                Navigation
+                    .findNavController(binding.root)
+                    .navigate(R.id.action_splashScreenFrag_to_signInFrag)
+            }
         },2000)
 
         return binding.root
