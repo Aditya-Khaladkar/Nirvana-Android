@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "552986497814-1fd9d2evf34ed7rd3r2cimip7nh0v7gr.apps.googleusercontent.com",
+          "client_id": "552986497814-2m8mg36o1ah5pao5v2902bo1utvf5pga.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nirvana",
+            "certificate_hash": "8756a81439927594e73111102e2ce2ac8ce09be9"
+          }
+        },
+        {
+          "client_id": "552986497814-hfuq3quol7c7imhlbqhc9jjvv6dln94a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
