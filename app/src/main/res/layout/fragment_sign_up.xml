@@ -11,14 +11,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:paddingTop="20dp">
+        android:layout_centerInParent="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nirvana"
+                    android:fontFamily="@font/fasthandregular"/>
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -29,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="Here’s\nyour first\nstep with \nus! "
+                    android:text="Sign Up\nto explore\nyour passion ! "
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -38,7 +51,8 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true" />
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/auth_1" />
 
             </RelativeLayout>
 
@@ -94,7 +108,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#0099ff"
                 android:text="sign up"
                 app:cornerRadius="9dp" />
 
@@ -128,10 +141,10 @@
             </LinearLayout>
 
             <com.google.android.gms.common.SignInButton
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp" />
 
         </LinearLayout>
     </ScrollView>
