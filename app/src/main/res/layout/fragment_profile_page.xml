@@ -111,8 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
-                    android:padding="10dp"
-                    android:background="@drawable/nav_background_curved"/>
+                    android:padding="10dp"/>
 
                 <EditText
                     android:layout_width="match_parent"
