@@ -24,12 +24,12 @@
                 android:layout_height="50dp">
 
                 <TextView
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/fasthandregular"
                     android:text="Nirvana"
-                    android:fontFamily="@font/fasthandregular"/>
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
 
             </FrameLayout>
 
@@ -48,16 +48,17 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:src="@drawable/auth"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/auth" />
 
             </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -73,9 +74,11 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                app:passwordToggleEnabled="true">
 
                 <EditText
                     android:id="@+id/logPassword"
@@ -146,10 +149,10 @@
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/btnSignInGoogle"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp" />
 
         </LinearLayout>
     </ScrollView>

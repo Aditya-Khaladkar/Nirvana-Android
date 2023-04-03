@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nirvana.R
 import com.example.nirvana.databinding.FragmentDashboardBinding
 import com.example.nirvana.view.fragment.AddSessionScreen
+import com.example.nirvana.view.fragment.ProfilePage
 import com.google.firebase.auth.FirebaseAuth
 
 class DashboardFrag : Fragment() {
@@ -44,6 +45,10 @@ class DashboardFrag : Fragment() {
                 }
                 R.id.addFrag -> {
                     loadFragment(AddSessionScreen())
+                    true
+                }
+                R.id.accountFrag -> {
+                    loadFragment(ProfilePage())
                     true
                 }
                 else -> false
