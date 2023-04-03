@@ -6,22 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.nirvana.R
 import com.example.nirvana.databinding.FragmentDashboardBinding
+import com.example.nirvana.util.ToastMessage
 import com.example.nirvana.view.fragment.AddSessionScreen
 import com.example.nirvana.view.fragment.ProfilePage
-import com.google.firebase.auth.FirebaseAuth
 
 class DashboardFrag : Fragment() {
     lateinit var binding: FragmentDashboardBinding
-
-    private fun authSignOut() {
-        FirebaseAuth.getInstance().signOut()
-        Navigation.findNavController(binding.root).navigate(R.id.action_dashboardFrag_to_signInFrag)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +25,20 @@ class DashboardFrag : Fragment() {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         // Dashboard Features
-        binding.lottieViewSports.setAnimation(R.raw.sports)
-        binding.lottieViewMusic.setAnimation(R.raw.music)
-        binding.lottieViewPetting.setAnimation(R.raw.pet)
-        binding.lottieViewPhoto.setAnimation(R.raw.photo)
+        val carouselData = listOf(
+            SlideModel(R.drawable.auth, "sports"),
+            SlideModel(R.drawable.img_music, "music"),
+            SlideModel(R.drawable.img_photo, "photography"),
+            SlideModel(R.drawable.img_pet, "petting")
+        )
+
+        binding.imageSlider.setImageList(carouselData)
+
+        binding.imageSlider.setItemClickListener(object : ItemClickListener{
+            override fun onItemSelected(position: Int) {
+                ToastMessage.show(requireContext(), position.toString())
+            }
+        })
 
         // Bottom Nav -> Onclick and Navigation
         binding.bottomNavigationView.setOnItemSelectedListener {
