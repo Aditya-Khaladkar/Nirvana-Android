@@ -57,124 +57,13 @@
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
-                <LinearLayout
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:padding="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/lottie_viewSports"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
-                                android:text="sports"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_gravity="end"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/lottie_viewMusic"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
-                                android:text="music"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:padding="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/lottie_viewPetting"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
-                                android:text="petting"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_gravity="end"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/lottie_viewPhoto"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
-                                android:text="photography"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </FrameLayout>
-
-                </LinearLayout>
+                    android:layout_height="200dp"
+                    app:iss_auto_cycle="false"
+                    app:iss_period="3000"
+                    app:iss_delay="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -201,8 +90,6 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:background="@drawable/nav_background_curved"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
