@@ -43,7 +43,29 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Session Image"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+               <ImageView
+                   android:id="@+id/eventImage"
+                   android:src="@drawable/add_event_img"
+                   android:layout_width="match_parent"
+                   android:layout_height="150dp"/>
+
+            </LinearLayout>
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -59,6 +81,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -74,6 +97,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -171,21 +195,22 @@
 
                 <TextView
                     android:id="@+id/txtEventDate"
-                    android:text="select event date"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:padding="10dp"
+                    android:text="select event date"
                     app:drawableEndCompat="@drawable/baseline_calendar_month_24" />
 
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:counterMaxLength="100"
+                android:layout_marginTop="20dp"
                 app:counterEnabled="true"
-                android:layout_marginTop="20dp">
+                app:counterMaxLength="100">
 
                 <EditText
                     android:id="@+id/edEventDescription"
