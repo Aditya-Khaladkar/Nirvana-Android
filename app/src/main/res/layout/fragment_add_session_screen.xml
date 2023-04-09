@@ -58,11 +58,27 @@
 
                <ImageView
                    android:id="@+id/eventImage"
-                   android:src="@drawable/add_event_img"
+                   android:src="@drawable/add_session_img"
                    android:layout_width="match_parent"
                    android:layout_height="150dp"/>
 
             </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/edEventHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Who is this event's host ?"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -113,6 +129,22 @@
                     android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/edEventAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -167,28 +199,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Expected Crowd"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
-
-                <Spinner
-                    android:id="@+id/spinnerExpectedCrowd"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-                    android:padding="10dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="Event Date"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
@@ -201,6 +211,30 @@
                     android:padding="10dp"
                     android:text="select event date"
                     app:drawableEndCompat="@drawable/baseline_calendar_month_24" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Time"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txtEventTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:text="select event time"
+                    app:drawableEndCompat="@drawable/baseline_access_time_24" />
 
             </LinearLayout>
 
@@ -226,6 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:id="@+id/btnAddSession"
                 android:text="add session"
                 app:cornerRadius="9dp" />
 

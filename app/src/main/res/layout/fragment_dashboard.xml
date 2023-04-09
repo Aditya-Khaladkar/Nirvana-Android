@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/containerLayout"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.ui.DashboardFrag">
 
     <ScrollView
@@ -57,24 +57,20 @@
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
-                <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/image_slider"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/carouselRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    app:iss_auto_cycle="false"
-                    app:iss_period="3000"
-                    app:iss_delay="0"/>
+                    android:layout_height="match_parent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="Top places"
+                    android:layout_marginTop="10dp"
+                    android:text="What’s happening near you"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/placesRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

@@ -6,17 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.denzcoskun.imageslider.interfaces.ItemClickListener
-import com.denzcoskun.imageslider.models.SlideModel
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nirvana.R
+import com.example.nirvana.adapter.CarouselAdapter
 import com.example.nirvana.databinding.FragmentDashboardBinding
-import com.example.nirvana.util.ToastMessage
+import com.example.nirvana.model.DashboardCarouselModel
 import com.example.nirvana.view.fragment.AddSessionScreen
 import com.example.nirvana.view.fragment.ProfilePage
 
 class DashboardFrag : Fragment() {
     lateinit var binding: FragmentDashboardBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,20 +24,19 @@ class DashboardFrag : Fragment() {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         // Dashboard Features
-        val carouselData = listOf(
-            SlideModel(R.drawable.auth, "sports"),
-            SlideModel(R.drawable.img_music, "music"),
-            SlideModel(R.drawable.img_photo, "photography"),
-            SlideModel(R.drawable.img_pet, "petting")
+        binding.carouselRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.carouselRecyclerView.setHasFixedSize(true)
+        val data = listOf(
+            DashboardCarouselModel(R.drawable.img_music),
+            DashboardCarouselModel(R.drawable.img_sports),
+            DashboardCarouselModel(R.drawable.img_photo),
+            DashboardCarouselModel(R.drawable.img_pet)
         )
+        val adapter = CarouselAdapter(data)
+        binding.carouselRecyclerView.adapter = adapter
 
-        binding.imageSlider.setImageList(carouselData)
 
-        binding.imageSlider.setItemClickListener(object : ItemClickListener{
-            override fun onItemSelected(position: Int) {
-                ToastMessage.show(requireContext(), position.toString())
-            }
-        })
 
         // Bottom Nav -> Onclick and Navigation
         binding.bottomNavigationView.setOnItemSelectedListener {
