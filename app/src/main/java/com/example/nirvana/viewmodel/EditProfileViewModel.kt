@@ -19,7 +19,7 @@ class EditProfileViewModel : ViewModel() {
         binding: FragmentEditProfileBinding
     ) = viewModelScope.launch {
         val documentReference: DocumentReference =
-            FirebaseAPI.firestore.collection("users")
+            FirebaseFirestore.getInstance().collection("users")
                 .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
         documentReference.addSnapshotListener { value, error ->
             binding.edtProfileUsername.setText(value?.getString("username"))
@@ -45,7 +45,7 @@ class EditProfileViewModel : ViewModel() {
         map["lastname"] = lastName
         map["interests"] = interests
 
-        FirebaseAPI.firestore.collection("users")
+        FirebaseFirestore.getInstance().collection("users")
             .document(FirebaseAPI.auth.currentUser?.uid.toString())
             .set(map)
             .addOnSuccessListener {

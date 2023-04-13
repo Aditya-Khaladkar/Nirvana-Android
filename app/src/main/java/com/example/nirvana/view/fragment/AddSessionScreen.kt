@@ -1,8 +1,10 @@
 package com.example.nirvana.view.fragment
 
+import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,8 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.nirvana.databinding.FragmentAddSessionScreenBinding
+import com.example.nirvana.util.AuthDialogueBox
+import com.example.nirvana.util.ToastMessage
 import com.example.nirvana.viewmodel.AddSessionScreenViewModel
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
@@ -30,6 +34,8 @@ class AddSessionScreen : Fragment() {
 
     lateinit var eventCity: String
     lateinit var eventHobby: String
+
+    lateinit var imageUri: Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,19 +58,29 @@ class AddSessionScreen : Fragment() {
         val viewModel = ViewModelProvider(this)[AddSessionScreenViewModel::class.java]
 
         binding.btnAddSession.setOnClickListener {
-            viewModel.pushEventDataToFirebase(
-                requireContext(),
-                binding.edEventHost.text.toString(),
-                binding.edEventFullName.text.toString(),
-                binding.edEventEmail.text.toString(),
-                binding.edEventPhoneNumber.text.toString(),
-                binding.edEventAddress.text.toString(),
-                eventCity,
-                eventHobby,
-                binding.txtEventDate.text.toString(),
-                binding.txtEventTime.text.toString(),
-                binding.edEventDescription.text.toString()
-            )
+            AuthDialogueBox.setProgressDialog(requireContext(), "adding your session")
+
+            if (imageUri != null) {
+
+                viewModel.pushEventDataToFirebase(
+                    requireContext(),
+                    binding.edEventTitle.text.toString(),
+                    binding.edEventHost.text.toString(),
+                    binding.edEventFullName.text.toString(),
+                    binding.edEventEmail.text.toString(),
+                    binding.edEventPhoneNumber.text.toString(),
+                    binding.edEventAddress.text.toString(),
+                    binding.edEventArea.text.toString(),
+                    eventCity,
+                    eventHobby,
+                    binding.txtEventDate.text.toString(),
+                    binding.txtEventTime.text.toString(),
+                    binding.edEventDescription.text.toString(),
+                    imageUri
+                )
+            } else {
+                ToastMessage.show(requireContext(), "upload image")
+            }
         }
 
         return binding.root
@@ -167,6 +183,14 @@ class AddSessionScreen : Fragment() {
             // at last we are calling show to
             // display our time picker dialog.
             timePickerDialog.show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK && data != null) {
+            imageUri = data.data!!
+            binding.eventImage.setImageURI(imageUri)
         }
     }
 }
