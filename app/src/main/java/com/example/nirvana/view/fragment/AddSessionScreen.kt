@@ -70,7 +70,6 @@ class AddSessionScreen : Fragment() {
                     binding.edEventEmail.text.toString(),
                     binding.edEventPhoneNumber.text.toString(),
                     binding.edEventAddress.text.toString(),
-                    binding.edEventArea.text.toString(),
                     eventCity,
                     eventHobby,
                     binding.txtEventDate.text.toString(),
@@ -95,47 +94,100 @@ class AddSessionScreen : Fragment() {
         }
 
         // select session city
-        val cityArray = listOf("Select City", "Pune", "Bangalore", "Mumbai", "Hyderabad")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, cityArray)
+        val cityArray = listOf(
+            "Ambegaon Budruk",
+            "Aundh",
+            "Baner",
+            "Bavdhan Khurd",
+            "Bavdhan Budruk",
+            "Balewadi",
+            "Shivajinagar",
+            "Bibvewadi",
+            "Bhugaon",
+            "Bhukum",
+            "Dhankawadi",
+            "Dhanori",
+            "Dhayari",
+            "Erandwane",
+            "Fursungi",
+            "Ghorpadi",
+            "Hadapsar",
+            "Hingne Khurd",
+            "Karve Nagar",
+            "Kalas",
+            "Katraj",
+            "Khadki",
+            "Kharadi",
+            "Kondhwa",
+            "Koregaon Park",
+            "Kothrud",
+            "Lohagaon",
+            "Manjri",
+            "Markal",
+            "Mohammed Wadi",
+            "Mundhwa",
+            "Nanded",
+            "Parvati (Parvati Hill)",
+            "Panmala",
+            "Pashan",
+            "Pirangut",
+            "Shivane",
+            "Sus",
+            "Undri",
+            "Vishrantwadi",
+            "Vitthalwadi",
+            "Vadgaon Khurd",
+            "Vadgaon Budruk",
+            "Vadgaon Sheri",
+            "Wagholi",
+            "Wanwadi",
+            "Warje",
+            "Yerwada"
+        )
+        val adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, cityArray)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerEventCity.adapter = adapter
+        binding.spinnerEventArea.adapter = adapter
 
-        binding.spinnerEventCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                val selectedCity = p0?.getItemAtPosition(p2).toString()
-                if (selectedCity == "Select City") {
+        binding.spinnerEventArea.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val selectedCity = p0?.getItemAtPosition(p2).toString()
+                    if (selectedCity == "Select City") {
+
+                    }
+                    eventCity = selectedCity
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
 
                 }
-                eventCity = selectedCity
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
-
-        }
 
 
         // select event type ( hobby )
-        val hobbyArray = listOf("Select Hobby","sports", "music", "photography", "petting")
-        val hobbyAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, hobbyArray)
+        val hobbyArray = listOf("Select Hobby", "sports", "music", "photography", "petting")
+        val hobbyAdapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, hobbyArray)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerEventType.adapter = hobbyAdapter
 
-        binding.spinnerEventType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                val selectedHobby = p0?.getItemAtPosition(p2).toString()
-                if (selectedHobby == "Select Hobby") {
+        binding.spinnerEventType.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val selectedHobby = p0?.getItemAtPosition(p2).toString()
+                    if (selectedHobby == "Select Hobby") {
+
+                    }
+                    eventHobby = selectedHobby
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
 
                 }
-                eventHobby = selectedHobby
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
-
-        }
 
         // select event date
         binding.txtEventDate.setOnClickListener {

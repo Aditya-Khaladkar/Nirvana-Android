@@ -50,8 +50,8 @@
             android:id="@+id/action_dashboardFrag_to_editProfile"
             app:destination="@id/editProfile" />
         <action
-            android:id="@+id/action_dashboardFrag_to_successScreen"
-            app:destination="@id/successScreen" />
+            android:id="@+id/action_dashboardFrag_to_eventDetails"
+            app:destination="@id/eventDetails" />
     </fragment>
     <fragment
         android:id="@+id/editProfile"
@@ -59,17 +59,8 @@
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
-        android:id="@+id/successScreen"
-        android:name="com.example.nirvana.view.ui.SuccessScreen"
-        android:label="fragment_success_screen"
-        tools:layout="@layout/fragment_success_screen" >
-        <action
-            android:id="@+id/action_successScreen_to_profilePage"
-            app:destination="@id/profilePage" />
-    </fragment>
-    <fragment
-        android:id="@+id/profilePage"
-        android:name="com.example.nirvana.view.fragment.ProfilePage"
-        android:label="fragment_profile_page"
-        tools:layout="@layout/fragment_profile_page" />
+        android:id="@+id/eventDetails"
+        android:name="com.example.nirvana.view.ui.EventDetails"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" />
 </navigation>

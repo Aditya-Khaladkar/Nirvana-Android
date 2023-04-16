@@ -37,7 +37,6 @@ class AddSessionScreenViewModel : ViewModel() {
         phoneNumber: String,
         eventAddress: String,
         eventArea: String,
-        eventCity: String,
         eventType: String,
         eventDate: String,
         eventTime: String,
@@ -45,7 +44,6 @@ class AddSessionScreenViewModel : ViewModel() {
         uri: Uri
     ) = viewModelScope.launch {
         // Initialize database
-        val firebaseDatabase = FirebaseDatabase.getInstance()
         val reference: StorageReference = FirebaseStorage.getInstance().reference
 
         val ref = reference.child("eventImages").child(FirebaseAPI.auth.currentUser?.uid.toString())
@@ -63,7 +61,6 @@ class AddSessionScreenViewModel : ViewModel() {
                 map["phoneNumber"] = phoneNumber
                 map["eventAddress"] = eventAddress
                 map["eventArea"] = eventArea
-                map["eventCity"] = eventCity
                 map["eventType"] = eventType
                 map["eventDate"] = eventDate
                 map["eventTime"] = eventTime
