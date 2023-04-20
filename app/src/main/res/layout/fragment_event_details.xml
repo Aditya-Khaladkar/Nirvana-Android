@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/fragmentEventDetails"
     tools:context=".view.ui.EventDetails">
 
     <LinearLayout
@@ -16,6 +18,7 @@
             android:layout_height="300dp">
 
             <ImageView
+                android:id="@+id/eventDetailsImage"
                 android:background="@drawable/event_details_banner_img"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"/>
@@ -103,28 +106,22 @@
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
             <Button
+                android:layout_gravity="center"
                 android:id="@+id/btnEventDetailAdd"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="add to my session"
-                android:layout_margin="20dp"
                 android:textStyle="bold" />
 
             <Button
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:id="@+id/btnEventDetailGet"
-                android:layout_gravity="end"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="get contact"
-                android:layout_margin="20dp"
                 android:textStyle="bold" />
-
-        </FrameLayout>
 
     </LinearLayout>
 
