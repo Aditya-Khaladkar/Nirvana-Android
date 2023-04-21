@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_margin="10dp"
-        android:id="@+id/nearSessionListCityRL"
+        android:id="@+id/mySessionListCityRL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -20,13 +20,13 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/nearSessionEventImage"
+                android:id="@+id/mySessionEventImage"
                 android:layout_width="24dp"
                 android:layout_height="24dp"/>
 
             <TextView
                 android:layout_marginStart="10dp"
-                android:id="@+id/nearSessionTitle"
+                android:id="@+id/mySessionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10 over cricket match"
@@ -48,7 +48,7 @@
 
             <TextView
                 android:layout_marginStart="10dp"
-                android:id="@+id/nearSessionEventDate"
+                android:id="@+id/mySessionEventDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="14:15 - 08/04/23"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:layout_marginStart="10dp"
-                android:id="@+id/nearSessionEventAddress"
+                android:id="@+id/mySessionEventAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Baner, Pune"
@@ -79,6 +79,12 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="delete session"/>
 
     </LinearLayout>
 

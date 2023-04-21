@@ -5,24 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.nirvana.R
 import com.example.nirvana.model.NearSessionModel
-import com.example.nirvana.view.ui.DashboardFrag
-import com.example.nirvana.view.ui.EventDetails
 
 class NearSessionAdapter(
     private val list: List<NearSessionModel>
 ) :
     RecyclerView.Adapter<NearSessionAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nearSessionImage: ImageView = itemView.findViewById(R.id.nearSessionImage)
+        val nearSessionEventImage: ImageView = itemView.findViewById(R.id.nearSessionEventImage)
+        val nearSessionEventDate: TextView = itemView.findViewById(R.id.nearSessionEventDate)
         val nearSessionTitle: TextView = itemView.findViewById(R.id.nearSessionTitle)
         val nearSessionEventAddress: TextView = itemView.findViewById(R.id.nearSessionEventAddress)
+        val nearSessionListCityRL: LinearLayout = itemView.findViewById(R.id.nearSessionListCityRL)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,10 +38,15 @@ class NearSessionAdapter(
         val item = list[position]
         holder.nearSessionTitle.text = item.title
         holder.nearSessionEventAddress.text = item.eventArea
-        Glide.with(holder.nearSessionImage.context).load(item.imageLink)
-            .into(holder.nearSessionImage)
+        holder.nearSessionEventDate.text = "${item.eventTime} - ${item.eventDate}"
 
-        holder.nearSessionImage.setOnClickListener {
+        if (item.eventType == "sports") {
+            holder.nearSessionEventImage.setBackgroundResource(R.drawable.sports_logo)
+        } else if (item.eventType == "music") {
+            holder.nearSessionEventImage.setBackgroundResource(R.drawable.music_logo)
+        }
+
+        holder.nearSessionListCityRL.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("imageLink", item.imageLink)
             bundle.putString("title", item.title)

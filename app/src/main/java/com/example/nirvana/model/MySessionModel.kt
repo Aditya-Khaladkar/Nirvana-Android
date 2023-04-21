@@ -1,6 +1,6 @@
 package com.example.nirvana.model
 
-data class NearSessionModel(
+data class MySessionModel(
     val title: String,
     val eventArea: String,
     val imageLink: String,

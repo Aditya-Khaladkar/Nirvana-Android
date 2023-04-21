@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_dashboardFrag_to_eventDetails"
             app:destination="@id/eventDetails" />
+        <action
+            android:id="@+id/action_dashboardFrag_to_categoriesListView"
+            app:destination="@id/categoriesListView" />
     </fragment>
     <fragment
         android:id="@+id/editProfile"
@@ -63,4 +66,9 @@
         android:name="com.example.nirvana.view.ui.EventDetails"
         android:label="fragment_event_details"
         tools:layout="@layout/fragment_event_details" />
+    <fragment
+        android:id="@+id/categoriesListView"
+        android:name="com.example.nirvana.view.ui.CategoriesListView"
+        android:label="fragment_categories_list_view"
+        tools:layout="@layout/fragment_categories_list_view" />
 </navigation>

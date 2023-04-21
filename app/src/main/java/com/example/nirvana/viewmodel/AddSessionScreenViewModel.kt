@@ -76,9 +76,25 @@ class AddSessionScreenViewModel : ViewModel() {
                     .addOnFailureListener {
                         ToastMessage.show(context, it.toString())
                     }
+
+                // adding sessions to local profile
+                FirebaseFirestore.getInstance().collection("my_events")
+                    .document(FirebaseAPI.auth.currentUser?.uid.toString())
+                    .collection(FirebaseAPI.auth.currentUser?.uid.toString())
+                    .document()
+                    .set(map)
+                    .addOnCompleteListener {
+                        AuthDialogueBox.dialog.dismiss()
+                        ToastMessage.show(context, "event added")
+                    }
+                    .addOnFailureListener {
+                        ToastMessage.show(context, it.toString())
+                    }
+
             }
         }.addOnFailureListener {
 
         }
+
     }
 }
