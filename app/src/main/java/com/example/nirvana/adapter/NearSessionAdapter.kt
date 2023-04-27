@@ -40,10 +40,19 @@ class NearSessionAdapter(
         holder.nearSessionEventAddress.text = item.eventArea
         holder.nearSessionEventDate.text = "${item.eventTime} - ${item.eventDate}"
 
-        if (item.eventType == "sports") {
-            holder.nearSessionEventImage.setBackgroundResource(R.drawable.sports_logo)
-        } else if (item.eventType == "music") {
-            holder.nearSessionEventImage.setBackgroundResource(R.drawable.music_logo)
+        when (item.eventType) {
+            "sports" -> {
+                holder.nearSessionEventImage.setBackgroundResource(R.drawable.sports_logo)
+            }
+            "music" -> {
+                holder.nearSessionEventImage.setBackgroundResource(R.drawable.music_logo)
+            }
+            "photography" -> {
+                holder.nearSessionEventImage.setBackgroundResource(R.drawable.photo_logo)
+            }
+            else -> {
+                holder.nearSessionEventImage.setBackgroundResource(R.drawable.pet_logo)
+            }
         }
 
         holder.nearSessionListCityRL.setOnClickListener {
@@ -55,6 +64,7 @@ class NearSessionAdapter(
             bundle.putString("eventDate", item.eventDate)
             bundle.putString("eventTime", item.eventTime)
             bundle.putString("eventAddress", item.eventAddress)
+            bundle.putString("phoneNumber", item.phoneNumber)
             Navigation.findNavController(it)
                 .navigate(R.id.action_dashboardFrag_to_eventDetails, bundle)
         }

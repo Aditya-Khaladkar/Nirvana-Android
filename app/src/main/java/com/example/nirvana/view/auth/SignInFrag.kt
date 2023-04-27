@@ -29,7 +29,6 @@ class SignInFrag : Fragment() {
 
         binding.btnSignIn.setOnClickListener {
             auth(
-                binding = binding,
                 email = binding.logEmail.text.toString(),
                 password = binding.logPassword.text.toString()
             )
@@ -38,10 +37,10 @@ class SignInFrag : Fragment() {
         return binding.root
     }
 
-    private fun auth(binding: FragmentSignInBinding, email: String, password: String) {
+    private fun auth(email: String, password: String) {
         if (
-            binding.logEmail.text.toString().isEmpty()
-            && binding.logPassword.text.toString().isEmpty()
+            email.isEmpty()
+            && password.isEmpty()
         ) {
             ToastMessage.show(requireContext(), "Enter Email And Password")
         } else {

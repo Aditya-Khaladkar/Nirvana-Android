@@ -49,19 +49,63 @@
 
         </FrameLayout>
 
-        <TextView
+        <FrameLayout
+            android:id="@+id/profileCreatedSessionFL"
             android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Created Session"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Created Session"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_gravity="center|end"
+                android:src="@drawable/baseline_arrow_drop_down_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mySessionRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:id="@+id/profileScheduledSessionFL"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scheduled Sessions"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_gravity="center|end"
+                android:src="@drawable/baseline_arrow_drop_down_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/scheduledSessionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
 
     </LinearLayout>
 

@@ -8,9 +8,11 @@ data class NearSessionModel(
     val eventDate: String,
     val eventTime: String,
     val eventAddress: String,
-    val eventType: String
+    val eventType: String,
+    val phoneNumber: String
 ) {
     constructor() : this(
+        "",
         "",
         "",
         "",
